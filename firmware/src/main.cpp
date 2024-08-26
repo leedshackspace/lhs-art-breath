@@ -104,7 +104,7 @@ void setup() {
 
 static portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;;
 
-void outputFastLed(RunState* runstate) {
+void outputLeds(RunState* runstate) {
   uint8_t s0c[3] = {};
     for (int i = 0; i < SEGMENTS; i++) {
       runstate->segmentControllers[i].getCurrentColor(s0c);
@@ -189,5 +189,5 @@ void loop() {
   //if (audiostate != NULL) {
     //audio_i2s_play(audiostate);
   //}
-  doTick(&runstate, outputFastLed);
+  doTick(&runstate, outputLeds);
 }
